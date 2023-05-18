@@ -1,7 +1,24 @@
 import { Link } from 'react-router-dom';
-import logo from "/robotics.png"
+import logo from "/robotics.png";
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
-function Navbar({ user, logout }) {
+const Navbar = () => {
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user;
+  const logOut = authContext?.logOut;
+  console.log(user);
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      // Additional code after successful sign out if needed
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <nav className="bg-gray-100">
       <div className="container mx-auto p-4 flex justify-between items-center">
@@ -19,17 +36,38 @@ function Navbar({ user, logout }) {
           <li><Link to="/blogs" className="hover:text-gray-300">Blogs</Link></li>
           <li className="relative">
             {user ? (
-              <>
-                <Link to="/profile" className="hover:text-gray-300">
-                  <img src="profile.png" alt="User Profile Picture" className="h-8 rounded-full" />
-                  <span className="ml-2">{user.username}</span>
-                </Link>
-                <button onClick={logout} className="ml-2 text-sm text-gray-400 hover:text-gray-300">Logout</button>
-              </>
+              <button
+                className="hover:text-gray-300 lg:px-4 py-3 rounded-lg"
+                onClick={handleSignOut}
+              >
+                Sign out
+              </button>
             ) : (
-              <Link to="/login" className="hover:text-gray-300">Login</Link>
+              <Link
+                className="hover:text-gray-300 lg:px-4 py-3 rounded-lg"
+                to="/login"
+              >
+                Login
+              </Link>
             )}
           </li>
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="rounded-full">
+              {user ? (
+                user.photoURL ? (
+                  <img
+                    src={user.photoURL}
+                    alt="userimage"
+                    title={user.displayName}
+                  />
+                ) : (
+                  <FaUserCircle className="text-2xl"></FaUserCircle>
+                )
+              ) : (
+                <FaUserCircle className="text-2xl"></FaUserCircle>
+              )}
+            </div>
+          </label>
         </ul>
       </div>
     </nav>
