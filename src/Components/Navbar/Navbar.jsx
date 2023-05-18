@@ -45,8 +45,7 @@ const Navbar = () => {
             ) : (
               <Link
                 className="hover:text-gray-300 lg:px-4 py-3 rounded-lg"
-                to="/login"
-              >
+                to="/login">
                 Login
               </Link>
             )}
