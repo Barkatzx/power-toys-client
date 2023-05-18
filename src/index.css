@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'BubblegumSans';
+  src: url('/public/BubblegumSans.ttf') format('truetype');
+  /* You can add additional font formats here if your font supports them */
+}
+
+body {
+  font-family: 'BubblegumSans', sans-serif;
+}
