@@ -43,7 +43,7 @@ const Login = () => {
     setError("");
 
     if (password.length < 6) {
-      setError("Password must be 6 characters or longer");
+      setError("Password Must Be 6 Characters Or Longer");
       return;
     }
 
@@ -63,10 +63,9 @@ const Login = () => {
     <div className="container mx-auto px-2 lg:px-0">
       <form
         onSubmit={handleLogin}
-        className="bg-white p-6 lg:p-10  border-2 rounded-lg w-full lg:w-2/5 mx-auto mt-16"
-      >
-        <h1 className="text-xl md:text-2xl font-bold leading-tight mb-5">
-          Log in to your account
+        className="bg-gray-100 p-6 lg:p-10  border-2 rounded-2xl w-full lg:w-2/5 mx-auto mt-16 shadow-2xl">
+        <h1 className="text-2xl md:text-2xl font-bold leading-tight mb-8 text-center ">
+          Log in to your Account
         </h1>
         <div className="relative z-0 w-full mb-6 group">
           <input
@@ -75,14 +74,13 @@ const Login = () => {
             id="floating_email"
             ref={emailRef}
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
+            placeholder=""
             required
           />
           <label
             htmlFor="floating_email"
             className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Email address
+          > Email Address
           </label>
         </div>
         <div className="relative z-0 w-full mb-6 group">
@@ -100,7 +98,7 @@ const Login = () => {
           >
             Password
           </label>
-          <p className="text-red-600 py-4">{error}</p>
+          <p className="text-red-600 py-4 font-semibold">{error}</p>
         </div>
 
         <div className="flex items-center justify-between mb-6">
@@ -121,14 +119,16 @@ const Login = () => {
           </div>
 
           <div>
-            <Link className="underline text-amber-500">Forgot Password?</Link>
+            <Link to="/forgot-password" className="underline text-amber-500">
+              Forgot Password?
+            </Link>
           </div>
         </div>
 
         <div className="text-center">
           <button
             type="submit"
-            className="bg-amber-500 focus:outline-none font-medium rounded-lg text-sm w-full block py-2.5"
+            className="bg-white focus:outline-none font-medium rounded-lg text-2xl w-full block py-2.5"
           >
             Login
           </button>

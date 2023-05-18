@@ -3,9 +3,9 @@ import logo from "/robotics.png"
 
 function Footer() {
   return (
-    <footer className="bg-gray-100 p-10">
+    <footer className="bg-gray-100 p-5 mt-10">
       <div className="container mx-auto flex flex-col md:flex-row justify-around">
-        <div className="mb-8 flex">
+        <div className="flex">
           <img src={logo} alt="PowerToys" className="h-8" />
           <span className="ml-2 text-3xl font-bold">PowerToys</span>
         </div>

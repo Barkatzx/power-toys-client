@@ -1,76 +1,135 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "/robotics.png";
+import logo from '/robotics.png';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const authContext = useContext(AuthContext);
   const user = authContext?.user;
   const logOut = authContext?.logOut;
-  console.log(user);
 
   const handleSignOut = async () => {
     try {
       await logOut();
-      // Additional code after successful sign out if needed
     } catch (error) {
       console.log(error);
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className="bg-gray-100">
-      <div className="container mx-auto p-4 flex justify-between items-center">
+    <nav className="bg-gray-100 container mx-auto ">
+      <div className="p-4 flex flex-wrap justify-around items-center">
         <div className="flex items-center">
+          <img src={logo} alt="PowerToys" className="h-8" />
           <Link to="/">
-            <img src={logo} alt="PowerToys" className="h-8" />
+            <h1 className="text-3xl ml-2 font-bold">PowerToys</h1>
           </Link>
-          <h1 className="text-3xl ml-2 font-bold">PowerToys</h1>
         </div>
-        <ul className="flex space-x-4">
-          <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
-          <li><Link to="/toys" className="hover:text-gray-300">All Toys</Link></li>
-          <li><Link to="/my-toys" className="hover:text-gray-300">My Toys</Link></li>
-          <li><Link to="/add-toy" className="hover:text-gray-300">Add A Toy</Link></li>
-          <li><Link to="/blogs" className="hover:text-gray-300">Blogs</Link></li>
-          <li className="relative">
-            {user ? (
-              <button
-                className="hover:text-gray-300 lg:px-4 py-3 rounded-lg"
-                onClick={handleSignOut}
-              >
-                Sign out
-              </button>
-            ) : (
-              <Link
-                className="hover:text-gray-300 lg:px-4 py-3 rounded-lg"
-                to="/login">
-                Login
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          className="hidden"
+          checked={isMenuOpen}
+          onChange={toggleMenu}
+        />
+        <label htmlFor="menu-toggle" className="cursor-pointer md:hidden">
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </label>
+        <div
+          className={`w-full md:w-auto md:flex ${
+            isMenuOpen ? 'block' : 'hidden'
+          }`}
+        >
+          <ul className="md:flex md:space-x-4">
+            <li>
+              <Link to="/" className="hover:text-gray-300">
+                Home
               </Link>
-            )}
-          </li>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="rounded-full">
+            </li>
+            <li>
+              <Link to="/toys" className="hover:text-gray-300">
+                All Toys
+              </Link>
+            </li>
+            <li>
+              <Link to="/my-toys" className="hover:text-gray-300">
+                My Toys
+              </Link>
+            </li>
+            <li>
+              <Link to="/add-toy" className="hover:text-gray-300">
+                Add A Toy
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogs" className="hover:text-gray-300">
+                Blogs
+              </Link>
+            </li>
+            <li className="">
               {user ? (
-                user.photoURL ? (
-                  <img
-                    src={user.photoURL}
-                    alt="userimage"
-                    title={user.displayName}
-                  />
-                ) : (
-                  <FaUserCircle className="text-2xl"></FaUserCircle>
-                )
+                <button
+                  className="hover:text-gray-300 rounded-lg md:ms-10"
+                  onClick={handleSignOut}
+                >
+                  Sign Out
+                </button>
               ) : (
-                <FaUserCircle className="text-2xl"></FaUserCircle>
+                <Link
+                  className="hover:text-gray-300 lg:px-4 py-3 rounded-lg"
+                  to="/login"
+                >
+                  Login
+                </Link>
               )}
-            </div>
-          </label>
-        </ul>
+            </li>
+            {user && (
+              <li className="">
+                <label
+  htmlFor="menu-toggle"
+  tabIndex={0}
+  className="btn btn-ghost btn-circle avatar"
+>
+  <div className="rounded-full overflow-hidden h-8 w-8">
+    {user.photoURL ? (
+      <img
+        src={user.photoURL}
+        alt="UserImage"
+        title={user.displayName}
+        className="w-full h-full object-cover"
+      />
+    ) : (
+      <FaUserCircle className="text-2xl" />
+    )}
+  </div>
+</label>
+
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
