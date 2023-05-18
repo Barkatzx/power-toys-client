@@ -119,7 +119,7 @@ const Login = () => {
           </div>
 
           <div>
-            <Link to="/forgot-password" className="underline text-amber-500">
+            <Link to="/forgot-password" className="underline text-purple-500">
               Forgot Password?
             </Link>
           </div>
@@ -135,8 +135,8 @@ const Login = () => {
           <div className="mt-4">
             <p>
               Don’t have an account?
-              <Link to="/register" className="underline ml-2 text-amber-500">
-                Create an account
+              <Link to="/register" className="underline ml-2 text-purple-500">
+                Create an Account
               </Link>
             </p>
           </div>
