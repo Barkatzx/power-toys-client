@@ -21,7 +21,9 @@ const ToysCard = ({ toy, toys, setToys }) => {
           <p>Sub Category: {sub_category}</p>
           <p>Price: {price}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Details</button>
+            <Link to={`/toys/${_id}`} className="btn btn-primary">
+              Details
+            </Link>
           </div>
         </div>
       </div>

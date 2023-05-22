@@ -11,7 +11,6 @@ const AllToys = () => {
     toy.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
- 
   const limitedToys = filteredToys.slice(0, 20);
 
   return (
@@ -20,21 +19,15 @@ const AllToys = () => {
         All Toys: {toys.length}
       </h1>
       <input
-          type="text"
-          placeholder="Search by toy name"
-          value={searchTerm}
-          className='justify-center-center input w-full max-w-xs p-4 mb-4'
-          onChange={e => setSearchTerm(e.target.value)}
-        />
+        type="text"
+        placeholder="Search by toy name"
+        value={searchTerm}
+        className="mx-auto input w-full max-w-xs p-4 mb-4"
+        onChange={e => setSearchTerm(e.target.value)}
+      />
       <div className="">
-        
         {limitedToys.map(toy => (
-          <ToysCard
-            key={toy._id}
-            toy={toy}
-            toys={toys}
-            setToys={setToys}
-          />
+          <ToysCard key={toy._id} toy={toy} toys={toys} setToys={setToys} />
         ))}
       </div>
     </div>
