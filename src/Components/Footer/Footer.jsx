@@ -1,5 +1,6 @@
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import logo from "/robotics.png"
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -7,7 +8,12 @@ function Footer() {
       <div className="container mx-auto flex flex-col md:flex-row justify-around">
         <div className="flex">
           <img src={logo} alt="PowerToys" className="h-8" />
-          <span className="ml-2 text-3xl font-bold">PowerToys</span>
+          <div className="ml-2 text-3xl font-bold">PowerToys <br/>
+          <span className='text-lg'>
+            Power Toys is a beautiful sound website for child. <br/> And this is the best website for child toys.
+          </span>
+
+          </div>
         </div>
         <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
           <div>
@@ -22,11 +28,11 @@ function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-2">Quick Links</h3>
             <ul className="">
-              <li><a href="/">Home</a></li>
+              <li><Link to="/">Home</Link></li>
               <li><a href="/">All Toys</a></li>
               <li><a href="/">My Toys</a></li>
               <li><a href="/">Add A Toy</a></li>
-              <li><a href="/">Blogs</a></li>
+              <li><Link to="/blogs">Blog</Link></li>
             </ul>
           </div>
           <div>

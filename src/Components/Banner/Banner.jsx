@@ -12,7 +12,7 @@ const Banner = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${cover}), linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,4))`,
+        backgroundImage: `url(${cover}), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5))`,
         backgroundBlendMode: "overlay",
       }}
       className="bg-cover bg-center h-[600px] text-white px-4"
