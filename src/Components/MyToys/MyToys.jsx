@@ -94,13 +94,12 @@ const MyToys = ({ toys, setToys }) => {
                 <p>Price: {toy.price}</p>
               </div>
               <div className='btn-group btn-group-vertical space-y-4'>
-                <button className="btn">View</button>
                 <Link to={`updateToys/${toy._id}`}>
                   <button className="btn">Edit</button>
                 </Link>
                 <button
                   onClick={() => handleDelete(toy._id)}
-                  className="btn bg-orange-500">X</button>
+                  className="btn bg-pink-300">X</button>
               </div>
             </div>
           </div>
