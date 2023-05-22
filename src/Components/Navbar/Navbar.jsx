@@ -24,8 +24,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-100 container mx-auto ">
-      <div className="p-4 flex flex-wrap justify-around items-center">
+    <nav className="bg-gray-100 mb-2">
+      <div className="p-4 flex flex-wrap justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="PowerToys" className="h-8" />
           <Link to="/">

@@ -9,9 +9,9 @@ import PrivateRoutes from "./PrivateRoutes";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import AllToys from "../Components/AllToys/AllToys";
 import ToysDetails from "../Components/ToysDetails/ToysDetails";
+import MyToys from "../Components/MyToys/MyToys";
 
-
-const router = createBrowserRouter ([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Main/>,
@@ -38,16 +38,20 @@ const router = createBrowserRouter ([
         element: <PrivateRoutes><AddToys/></PrivateRoutes>,
       },
       {
+        path: "/my-toys",
+        element: <MyToys></MyToys>,
+      },
+      {
         path: "/toys",
         element: <AllToys/>,
-        loader: () =>     fetch('http://localhost:5000/toys'),
+        loader: () => fetch('http://localhost:5000/toys'),
       },
-      // {
-      //   path: "/toys/:id",
-      //   element: <ToysDetails />,
-      //   loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`).then(response => response.json()),
-      // },
+      {
+        path: '/toys/:id',
+        element: <PrivateRoutes><ToysDetails /></PrivateRoutes>,
+      }
     ]
-  },
+  }
 ]);
+
 export default router;

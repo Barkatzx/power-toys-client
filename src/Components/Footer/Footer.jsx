@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="bg-gray-100 p-5">
-      <div className="container mx-auto flex flex-col md:flex-row justify-around">
+    <footer className="bg-gray-100 p-5 mt-2">
+      <div className="flex flex-col md:flex-row justify-around">
         <div className="flex">
           <img src={logo} alt="PowerToys" className="h-8" />
           <div className="ml-2 text-3xl font-bold">PowerToys <br/>

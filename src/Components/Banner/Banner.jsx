@@ -15,9 +15,9 @@ const Banner = () => {
         backgroundImage: `url(${cover}), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5))`,
         backgroundBlendMode: "overlay",
       }}
-      className="bg-cover bg-center h-[600px] text-white px-4"
+      className="bg-cover bg-center h-[600px] text-white px-4 mb-2"
     >
-      <div className="flex flex-col lg:flex-row justify-between gap-10 w-full container mx-auto py-16 items-center">
+      <div className="flex flex-col lg:flex-row justify-between gap-10 w-full container mx-auto py-16 items-center ">
         <div className="w-full px-5 lg:px-0 lg:w-2/5">
           <h2 className="text-white text-4xl lg:text-6xl leading-tight tracking-tighter font-bold">
             Power Toys for Kids
