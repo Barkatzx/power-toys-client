@@ -2,10 +2,10 @@ import React from 'react';
 
 const Gallery = () => {
   const images = [
-    '/cover.jpg',
-    '/slider1.jpg',
-    '/slider2.jpg',
-    // Add more image URLs here
+    '/gallery.jpg',
+    '/gallery2.jpg',
+    '/gallery1.jpg',
+    '/gallery3.jpg',
   ];
 
   return (
@@ -17,7 +17,7 @@ const Gallery = () => {
             key={index}
             src={image}
             alt={`Image ${index + 1}`}
-            className="w-full h-40 object-cover rounded-md"
+            className="w-full h-40 rounded-md"
           />
         ))}
       </div>
