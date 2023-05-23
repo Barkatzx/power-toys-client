@@ -13,7 +13,7 @@ const ShopByCategory = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/toys');
+        const response = await fetch('https://power-toys-server-barkatzx.vercel.app/toys');
         if (response.ok) {
           const toys = await response.json();
           const uniqueSubCategories = [...new Set(toys.map((toy) => toy.sub_category))];
@@ -51,16 +51,12 @@ const ShopByCategory = () => {
   };
 
   const isUserLoggedIn = () => {
-    // Implement your authentication check here
-    // Return true if the user is logged in, false otherwise
-    // You can use cookies, local storage, or any other authentication mechanism
-    // to determine whether the user is logged in
-    return true; // Replace with your actual authentication logic
+    return true;
   };
 
   return (
     <div className='container mx-auto bg-slate-100 rounded-2xl shadow-2xl mt-3 p-10'>
-      <Tabs className='text-center'>
+      <Tabs className='text-center text-lg font-bold'>
         <TabList>
           {subCategories.map((subCategory) => (
             <Tab key={subCategory}>{subCategory}</Tab>
@@ -71,7 +67,7 @@ const ShopByCategory = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
               {toysBySubCategory[subCategory] && (
                 toysBySubCategory[subCategory].map((toy) => (
-                  <div key={toy._id} className='bg-white rounded-lg shadow-md p-4'>
+                  <div key={toy._id} className='bg-white rounded-3xl shadow-2xl p-4'>
                     <img src={toy.photo} alt={toy.name} className='w-full h-40 mb-4' />
                     <h3 className='text-lg font-semibold mb-2'>{toy.name}</h3>
                     <p className='text-gray-600 mb-2'>Price: ${toy.price}</p>

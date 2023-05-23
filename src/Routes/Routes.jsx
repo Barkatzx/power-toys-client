@@ -45,12 +45,12 @@ const router = createBrowserRouter([
       {
         path: '/my-toys/updateToys/:id', 
         element: <UpdateToys></UpdateToys>, 
-        loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({params}) => fetch(`https://power-toys-server-barkatzx.vercel.app/toys/${params.id}`)
       },
       {
         path: "/toys",
         element: <AllToys/>,
-        loader: () => fetch('http://localhost:5000/toys'),
+        loader: () => fetch('https://power-toys-server-barkatzx.vercel.app/toys'),
       },
       {
         path: '/toys/:id',

@@ -9,7 +9,7 @@ const ToysDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/toys/${id}`);
+        const response = await fetch(`https://power-toys-server-barkatzx.vercel.app/toys/${id}`);
         const jsonData = await response.json();
         setToyData(jsonData);
         setLoading(false);

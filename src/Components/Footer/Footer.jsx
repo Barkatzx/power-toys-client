@@ -29,9 +29,9 @@ function Footer() {
             <h3 className="text-2xl font-bold mb-2">Quick Links</h3>
             <ul className="">
               <li><Link to="/">Home</Link></li>
-              <li><a href="/">All Toys</a></li>
-              <li><a href="/">My Toys</a></li>
-              <li><a href="/">Add A Toy</a></li>
+              <li><Link to="/toys">All Toys</Link></li>
+              <li><Link to="/my-toys">My Toys</Link></li>
+              <li><Link to="/add-toy">Add A Toy</Link></li>
               <li><Link to="/blogs">Blog</Link></li>
             </ul>
           </div>

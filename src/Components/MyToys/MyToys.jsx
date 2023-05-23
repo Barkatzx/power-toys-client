@@ -11,7 +11,7 @@ const MyToys = ({ toys, setToys }) => {
   useEffect(() => {
     const fetchToysData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/toys', {
+        const response = await fetch('https://power-toys-server-barkatzx.vercel.app/toys', {
           headers: {
             Authorization: 'Bearer {accessToken}',
           },
@@ -20,7 +20,7 @@ const MyToys = ({ toys, setToys }) => {
         if (response.ok) {
           const toys = await response.json();
           setToysData(toys);
-          setSortedToysData(toys); // Set the sorted toys data initially
+          setSortedToysData(toys);
         } else {
           console.error('Failed to fetch toys data:', response.status);
         }
