@@ -19,11 +19,9 @@ const MyToys = ({ toys, setToys }) => {
           const toys = await response.json();
           setToysData(toys);
         } else {
-          // Handle error response
           console.error('Failed to fetch toys data:', response.status);
         }
       } catch (error) {
-        // Handle network or other errors
         console.error('Error fetching toys data:', error);
       } finally {
         setLoading(false);
@@ -70,8 +68,7 @@ const MyToys = ({ toys, setToys }) => {
 }
 
   return (
-    <div className='flex justify-between'>
-      <div className='text-3xl font-bold text-center mb-2'>Your Product List</div>
+    <div className='flex justify-around'>
       {toysData.map((toy) => (
         <div key={toy._id}>
           <div className="container mx-auto flex justify-center">
@@ -99,7 +96,7 @@ const MyToys = ({ toys, setToys }) => {
                 </Link>
                 <button
                   onClick={() => handleDelete(toy._id)}
-                  className="btn bg-pink-300">X</button>
+                  className="btn">X</button>
               </div>
             </div>
           </div>
